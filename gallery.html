@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Munene Denis - Project Portfolio</title>
+    <meta name="description" content="Explore the project gallery showcasing web applications, AI solutions, and innovative projects by Munene Denis.">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Global Floating Skill Icons -->
+    <div class="global-skill-icons">
+        <i class="fab fa-python floating-skill-icon python"></i>
+        <i class="fas fa-database floating-skill-icon database"></i>
+        <i class="fab fa-docker floating-skill-icon docker"></i>
+        <i class="fas fa-brain floating-skill-icon ai"></i>
+        <i class="fas fa-microchip floating-skill-icon electronics"></i>
+        <i class="fas fa-chart-line floating-skill-icon chart"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">M<span>D</span></a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="blog.html">Blog</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">Project Gallery</h1>
+            <p class="page-subtitle">A Showcase of Innovation and Technical Excellence</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="gallery-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="ai">AI & Data Science</button>
+                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                <button class="filter-btn" data-filter="iot">IoT & Hardware</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-grid">
+        <div class="container">
+            <div class="projects-gallery">
+                <!-- Liquor Store Management System -->
+                <div class="gallery-item" data-category="web">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="images/liq_adm.png" alt="Liquor Store Management System">
+                            <div class="gallery-overlay">
+                                <div class="gallery-actions">
+                                    <button class="gallery-btn" onclick="openGalleryModal('liquor-modal')">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                    <a href="https://github.com/MUNENE1212/Liquor_" class="gallery-btn" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>Liquor Store Management System</h3>
+                            <p>Comprehensive inventory and sales management platform with real-time analytics.</p>
+                            <div class="gallery-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">FastAPI</span>
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-Commerce Platform -->
+                <div class="gallery-item" data-category="web">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="images/baitek_home.png" alt="Electronics E-Commerce Platform">
+                            <div class="gallery-overlay">
+                                <div class="gallery-actions">
+                                    <button class="gallery-btn" onclick="openGalleryModal('ecommerce-modal')">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                    <a href="https://github.com/MUNENE1212/Baitech_website" class="gallery-btn" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>Electronics E-Commerce Platform</h3>
+                            <p>Full-featured online store with payment integration and customer analytics.</p>
+                            <div class="gallery-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">E-Commerce</span>
+                                <span class="tag">Payment Gateway</span>
+                                <span class="tag">Responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Retail Management Suite -->
+                <div class="gallery-item" data-category="web">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="images/retail_mgr.png" alt="Retail Shop Management Suite">
+                            <div class="gallery-overlay">
+                                <div class="gallery-actions">
+                                    <button class="gallery-btn" onclick="openGalleryModal('retail-modal')">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                    <a href="https://github.com/MUNENE1212/Smartbiz" class="gallery-btn" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>Retail Shop Management Suite</h3>
+                            <p>Complete POS solution with inventory tracking and sales forecasting.</p>
+                            <div class="gallery-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">POS System</span>
+                                <span class="tag">Inventory</span>
+                                <span class="tag">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI READY Recipe generator -->
+                <div class="gallery-item" data-category="ai">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="images/kerouma2.png" alt="AI Recipe Generator">
+                            <div class="gallery-overlay">
+                                <div class="gallery-actions">
+                                    <button class="gallery-btn" onclick="openGalleryModal('chatbot-modal')">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                    <a href="https://kerouma-ai.onrender.com/" class="gallery-btn">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>AI ready customizable Recipe generator</h3>
+                            <p>AI that learns your taste, suggests recipes based on your mood, and guides you through every step of culinary excellence.</p>
+                            <div class="gallery-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">NLP</span>
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLP planned project -->
+                <div class="gallery-item" data-category="Business">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="images/instatech.png" alt="Inst@tek Dashboard">
+                            <div class="gallery-overlay">
+                                <div class="gallery-actions">
+                                    <button class="gallery-btn" onclick="openGalleryModal('iot-modal')">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                    <a href="#" class="gallery-btn">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>Providing quality tech services</h3>
+                            <p>Real-time platform to market technical services and link skilled technicians to clients</p>
+                            <div class="gallery-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">REACT</span>
+                                <span class="tag">Machine learning</span>
+                                <span class="tag">Dashboard</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Portfolio Website -->
+                <div class="gallery-item" data-category="web">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="images/portfolio.png" alt="Personal Portfolio Website">
+                            <div class="gallery-overlay">
+                                <div class="gallery-actions">
+                                    <button class="gallery-btn" onclick="openGalleryModal('portfolio-modal')">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                    <a href="#" class="gallery-btn">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>Personal Portfolio Website</h3>
+                            <p>Modern, responsive portfolio website with interactive animations and effects.</p>
+                            <div class="gallery-tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modals -->
+    <div id="liquor-modal" class="gallery-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeGalleryModal('liquor-modal')">&times;</span>
+            <div class="modal-gallery">
+                <img src="images/liq_adm.png" alt="Liquor Store Dashboard">
+                <img src="images/liq_op.png" alt="Liquor Store Operations">
+                <img src="images/liq_sale.png" alt="Liquor Store Sales">
+            </div>
+            <div class="modal-info">
+                <h2>Liquor Store Management System</h2>
+                <p>A comprehensive solution for liquor store management including inventory tracking, sales analytics, supplier management, and financial reporting. Built with Python and FastAPI backend, MongoDB database, and responsive frontend.</p>
+                <div class="modal-features">
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li>Real-time inventory management</li>
+                        <li>Sales analytics and reporting</li>
+                        <li>Supplier and customer management</li>
+                        <li>Financial dashboard with profit tracking</li>
+                        <li>Multi-user access with role-based permissions</li>
+                    </ul>
+                </div>
+                <div class="modal-tech">
+                    <h3>Technologies Used:</h3>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">Jinja2</span>
+                    <span class="tech-tag">Bootstrap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add more modals for other projects -->
+    <div id="ecommerce-modal" class="gallery-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeGalleryModal('ecommerce-modal')">&times;</span>
+            <div class="modal-gallery">
+                <img src="images/baitek_home.png" alt="E-commerce Home Page">
+                <img src="images/featured_products.png" alt="Featured Products">
+            </div>
+            <div class="modal-info">
+                <h2>Electronics E-Commerce Platform</h2>
+                <p>Full-featured e-commerce platform specializing in electronics and tech products. Features modern design, secure payment processing, and comprehensive admin dashboard.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="gallery-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Interested in Working Together?</h2>
+                <p>I'm always excited to take on new challenges and create innovative solutions. Let's discuss your project ideas and bring them to life.</p>
+                <a href="index.html#contact" class="cta-button">Start a Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Munene Denis</div>
+                <p>Electrical & Electronic | Software | AI Engineer</p>
+
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About</a>
+                    <a href="services.html" class="footer-link">Services</a>
+                    <a href="gallery.html" class="footer-link">Gallery</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="index.html#contact" class="footer-link">Contact</a>
+                </div>
+
+                <p class="copyright">© 2025 Munene Denis. Built for PLP Academy Hackathon Challenge.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>
