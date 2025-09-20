@@ -4,7 +4,7 @@ A modern, responsive multi-page portfolio website showcasing professional expert
 
 ## 🌐 Live Website
 
-**[View Live Portfolio](munesh.netlify.app)**
+**[View Live Portfolio](https://munesh.netlify.app)**
 
 ## 🎯 Project Purpose
 
