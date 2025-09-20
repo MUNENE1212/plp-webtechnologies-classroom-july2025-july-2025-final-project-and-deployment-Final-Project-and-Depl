@@ -209,10 +209,5 @@ This portfolio website serves as a comprehensive showcase of Munene Denis's prof
 - **GitHub**: [MUNENE1212](https://github.com/MUNENE1212)
 - **Twitter**: [@MunE_nE](https://x.com/MunE_nE)
 
----
 
-🤖 **Generated with [Claude Code](https://claude.ai/code)**
-
-Co-Authored-By: Claude <noreply@anthropic.com>
-
-*Built for PLP Academy Hackathon Challenge - Web Technologies Final Project*
+*Built for PLP Academy - Web Technologies Final Project*
