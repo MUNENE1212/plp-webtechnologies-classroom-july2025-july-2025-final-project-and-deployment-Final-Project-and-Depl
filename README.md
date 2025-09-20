@@ -4,7 +4,7 @@ A modern, responsive multi-page portfolio website showcasing professional expert
 
 ## 🌐 Live Website
 
-**[View Live Portfolio](https://plp-webtechnologies.github.io/plp-webtechnologies-classroom-july2025-july-2025-final-project-and-deployment-Final-Project-and-Depl/)**
+**[View Live Portfolio](munesh.netlify.app)**
 
 ## 🎯 Project Purpose
 
