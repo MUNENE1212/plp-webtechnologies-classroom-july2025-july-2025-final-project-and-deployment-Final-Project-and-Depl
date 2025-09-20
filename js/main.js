@@ -1,7 +1,49 @@
 // Main JavaScript for Portfolio Website
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Smooth scrolling for navigation links
+    // Interactive transition messages for navigation
+    const transitionMessages = {
+        'home': { text: "Returning Home", icon: "fas fa-home" },
+        'about': { text: "Learning About Me", icon: "fas fa-user" },
+        'skills': { text: "Exploring Skills", icon: "fas fa-code" },
+        'projects': { text: "Viewing Projects", icon: "fas fa-folder-open" },
+        'contact': { text: "Getting In Touch", icon: "fas fa-envelope" }
+    };
+
+    const showTransitionMessage = (sectionId) => {
+        const message = transitionMessages[sectionId];
+        if (!message) return;
+
+        const transitionOverlay = document.createElement('div');
+        transitionOverlay.className = 'transition-overlay';
+        transitionOverlay.innerHTML = `
+            <div class="transition-content">
+                <div class="transition-icon">
+                    <i class="${message.icon}"></i>
+                </div>
+                <div class="transition-text">${message.text}</div>
+            </div>
+        `;
+
+        document.body.appendChild(transitionOverlay);
+
+        // Show transition
+        setTimeout(() => {
+            transitionOverlay.classList.add('show');
+        }, 10);
+
+        // Hide transition
+        setTimeout(() => {
+            transitionOverlay.classList.remove('show');
+            setTimeout(() => {
+                if (document.body.contains(transitionOverlay)) {
+                    document.body.removeChild(transitionOverlay);
+                }
+            }, 300);
+        }, 800);
+    };
+
+    // Smooth scrolling for navigation links with transition messages
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -10,14 +52,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.getElementById(targetId);
 
             if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                // Show transition message
+                showTransitionMessage(targetId);
 
-                // Update active nav link
-                navLinks.forEach(nl => nl.classList.remove('active'));
-                this.classList.add('active');
+                // Delay scroll to allow transition to show
+                setTimeout(() => {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    // Update active nav link
+                    navLinks.forEach(nl => nl.classList.remove('active'));
+                    this.classList.add('active');
+                }, 200);
             }
         });
     });
@@ -71,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     createMobileNav();
 
-    // Form validation and submission
+    // Enhanced form validation and submission with interactive messages
     const contactForm = document.querySelector('#contact form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -94,9 +142,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Simulate form submission
-            showNotification('Message sent successfully!', 'success');
-            this.reset();
+            // Show sending message animation
+            showInteractiveMessage('Sending Message', 'Your message is being delivered...', 'fas fa-paper-plane');
+
+            // Simulate form submission with delay
+            setTimeout(() => {
+                showNotification('Message sent successfully!', 'success');
+                this.reset();
+            }, 2000);
         });
     }
 
@@ -104,6 +157,41 @@ document.addEventListener('DOMContentLoaded', function() {
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
+    }
+
+    // Interactive message system for user actions
+    function showInteractiveMessage(title, subtitle, icon) {
+        const messageOverlay = document.createElement('div');
+        messageOverlay.className = 'interactive-message-overlay';
+        messageOverlay.innerHTML = `
+            <div class="interactive-message-content">
+                <div class="interactive-message-icon">
+                    <i class="${icon}"></i>
+                </div>
+                <div class="interactive-message-title">${title}</div>
+                <div class="interactive-message-subtitle">${subtitle}</div>
+                <div class="interactive-message-progress">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(messageOverlay);
+
+        // Show message
+        setTimeout(() => {
+            messageOverlay.classList.add('show');
+        }, 10);
+
+        // Hide message after delay
+        setTimeout(() => {
+            messageOverlay.classList.remove('show');
+            setTimeout(() => {
+                if (document.body.contains(messageOverlay)) {
+                    document.body.removeChild(messageOverlay);
+                }
+            }, 300);
+        }, 2000);
     }
 
     // Notification system
@@ -344,23 +432,117 @@ document.addEventListener('DOMContentLoaded', function() {
 
     createThemeToggle();
 
-    // Page loading animation
-    const pageLoader = document.createElement('div');
-    pageLoader.className = 'page-loader';
-    pageLoader.innerHTML = `
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <p>Loading Portfolio...</p>
-        </div>
-    `;
-    document.body.appendChild(pageLoader);
+    // Interactive loading experience with rotating messages
+    const loadingMessages = [
+        { main: "Initializing Experience", sub: "Setting up the digital workspace...", icon: "fas fa-cog" },
+        { main: "Loading Skills", sub: "Compiling technical expertise...", icon: "fas fa-code" },
+        { main: "Preparing Projects", sub: "Organizing portfolio showcase...", icon: "fas fa-folder-open" },
+        { main: "Optimizing Performance", sub: "Fine-tuning user experience...", icon: "fas fa-rocket" },
+        { main: "Almost Ready", sub: "Final touches in progress...", icon: "fas fa-check-circle" }
+    ];
 
-    window.addEventListener('load', () => {
+    let currentMessageIndex = 0;
+    let messageInterval;
+
+    const createInteractiveLoader = () => {
+        const pageLoader = document.createElement('div');
+        pageLoader.className = 'page-loader';
+        pageLoader.innerHTML = `
+            <div class="loader-content">
+                <div class="interactive-loader">
+                    <div class="loading-animation">
+                        <div class="pulse-rings">
+                            <div class="pulse-ring"></div>
+                            <div class="pulse-ring"></div>
+                            <div class="pulse-ring"></div>
+                        </div>
+                        <div class="loading-icon">
+                            <i class="${loadingMessages[0].icon}"></i>
+                        </div>
+                    </div>
+                    <div class="loading-message">${loadingMessages[0].main}</div>
+                    <div class="loading-subtitle">${loadingMessages[0].sub}</div>
+                    <div class="loading-progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(pageLoader);
+        return pageLoader;
+    };
+
+    const updateLoadingMessage = (loader) => {
+        const messageElement = loader.querySelector('.loading-message');
+        const subtitleElement = loader.querySelector('.loading-subtitle');
+        const iconElement = loader.querySelector('.loading-icon i');
+
+        const message = loadingMessages[currentMessageIndex];
+
+        // Add fade effect
+        messageElement.style.opacity = '0';
+        subtitleElement.style.opacity = '0';
+        iconElement.style.opacity = '0';
+
         setTimeout(() => {
-            pageLoader.classList.add('fade-out');
+            messageElement.textContent = message.main;
+            subtitleElement.textContent = message.sub;
+            iconElement.className = message.icon;
+
+            messageElement.style.opacity = '1';
+            subtitleElement.style.opacity = '1';
+            iconElement.style.opacity = '1';
+        }, 300);
+
+        currentMessageIndex = (currentMessageIndex + 1) % loadingMessages.length;
+    };
+
+    const startLoadingSequence = () => {
+        const pageLoader = createInteractiveLoader();
+
+        // Update messages every 800ms
+        messageInterval = setInterval(() => {
+            updateLoadingMessage(pageLoader);
+        }, 800);
+
+        window.addEventListener('load', () => {
+            // Let the last message play for a bit
             setTimeout(() => {
-                document.body.removeChild(pageLoader);
-            }, 500);
-        }, 1000);
-    });
+                clearInterval(messageInterval);
+
+                // Final message before completion
+                const messageElement = pageLoader.querySelector('.loading-message');
+                const subtitleElement = pageLoader.querySelector('.loading-subtitle');
+                const iconElement = pageLoader.querySelector('.loading-icon i');
+
+                messageElement.style.opacity = '0';
+                subtitleElement.style.opacity = '0';
+                iconElement.style.opacity = '0';
+
+                setTimeout(() => {
+                    messageElement.textContent = "Welcome!";
+                    subtitleElement.textContent = "Portfolio loaded successfully";
+                    iconElement.className = "fas fa-check";
+
+                    messageElement.style.opacity = '1';
+                    subtitleElement.style.opacity = '1';
+                    iconElement.style.opacity = '1';
+                }, 300);
+
+                // Fade out after showing success
+                setTimeout(() => {
+                    pageLoader.classList.add('fade-out');
+                    setTimeout(() => {
+                        if (document.body.contains(pageLoader)) {
+                            document.body.removeChild(pageLoader);
+                        }
+                    }, 500);
+                }, 1000);
+            }, 2000);
+        });
+
+        return pageLoader;
+    };
+
+    startLoadingSequence();
 });
