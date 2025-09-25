@@ -505,40 +505,51 @@ document.addEventListener('DOMContentLoaded', function() {
             updateLoadingMessage(pageLoader);
         }, 800);
 
-        window.addEventListener('load', () => {
-            // Let the last message play for a bit
+        // Maximum loading time (4 seconds total from start)
+        const maxLoadTime = setTimeout(() => {
+            hideLoader(pageLoader);
+        }, 4000);
+
+        const hideLoader = (loader) => {
+            clearInterval(messageInterval);
+            clearTimeout(maxLoadTime);
+
+            // Final message before completion
+            const messageElement = loader.querySelector('.loading-message');
+            const subtitleElement = loader.querySelector('.loading-subtitle');
+            const iconElement = loader.querySelector('.loading-icon i');
+
+            messageElement.style.opacity = '0';
+            subtitleElement.style.opacity = '0';
+            iconElement.style.opacity = '0';
+
             setTimeout(() => {
-                clearInterval(messageInterval);
+                messageElement.textContent = "Welcome!";
+                subtitleElement.textContent = "Portfolio loaded successfully";
+                iconElement.className = "fas fa-check";
 
-                // Final message before completion
-                const messageElement = pageLoader.querySelector('.loading-message');
-                const subtitleElement = pageLoader.querySelector('.loading-subtitle');
-                const iconElement = pageLoader.querySelector('.loading-icon i');
+                messageElement.style.opacity = '1';
+                subtitleElement.style.opacity = '1';
+                iconElement.style.opacity = '1';
+            }, 300);
 
-                messageElement.style.opacity = '0';
-                subtitleElement.style.opacity = '0';
-                iconElement.style.opacity = '0';
-
+            // Fade out after showing success
+            setTimeout(() => {
+                loader.classList.add('fade-out');
                 setTimeout(() => {
-                    messageElement.textContent = "Welcome!";
-                    subtitleElement.textContent = "Portfolio loaded successfully";
-                    iconElement.className = "fas fa-check";
+                    if (document.body.contains(loader)) {
+                        document.body.removeChild(loader);
+                    }
+                }, 500);
+            }, 800); // Reduced from 1000ms to 800ms
+        };
 
-                    messageElement.style.opacity = '1';
-                    subtitleElement.style.opacity = '1';
-                    iconElement.style.opacity = '1';
-                }, 300);
-
-                // Fade out after showing success
-                setTimeout(() => {
-                    pageLoader.classList.add('fade-out');
-                    setTimeout(() => {
-                        if (document.body.contains(pageLoader)) {
-                            document.body.removeChild(pageLoader);
-                        }
-                    }, 500);
-                }, 1000);
-            }, 2000);
+        // Hide loader when page is ready (DOMContentLoaded already fired, wait for load or timeout)
+        window.addEventListener('load', () => {
+            // Only hide if not already hidden by timeout
+            if (document.body.contains(pageLoader)) {
+                hideLoader(pageLoader);
+            }
         });
 
         return pageLoader;
