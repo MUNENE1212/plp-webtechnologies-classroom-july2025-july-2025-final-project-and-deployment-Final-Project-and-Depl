@@ -2291,7 +2291,7 @@ footer {
 .category {
     background: var(--primary);
     color: white;
-    padding: 0.3rem 0.8rem;
+    padding: 0.3rem 0.3rem;
     border-radius: 15px;
     font-size: 0.8rem;
 }
@@ -2751,6 +2751,10 @@ body.light-theme {
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(0, 0, 0, 0.1);
     color: var(--text);
+}
+
+.light-theme .about-content p {
+    color: goldenrod;
 }
 
 .light-theme footer {
@@ -3329,7 +3333,10 @@ body.light-theme {
         display: flex;
         justify-content: center;
     }
-
+    .blog-categories .container {
+        padding: 0%;
+        justify-content: center;
+    }
     /* Philosophy section mobile fixes */
     .philosophy blockquote {
         font-size: 1.2rem;
@@ -3410,6 +3417,11 @@ body.light-theme {
     /* Center containers on mobile */
     .categories-grid {
         justify-items: center;
+    }
+
+    .category-card {
+        max-width: 300px;
+        margin: 0 auto;
     }
 
     /* Philosophy section extra small screens */
